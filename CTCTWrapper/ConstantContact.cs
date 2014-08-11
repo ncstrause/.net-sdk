@@ -544,6 +544,15 @@ namespace CTCT
         }
 
         /// <summary>
+        /// Get a list of reports on last 50 activities.
+        /// </summary>
+        /// <returns>Returns the list of activities.</returns>
+        public IList<Activity> GetActivitiesStatusReport(string status, string type)
+        {
+            return ActivityService.GetActivitiesStatusReport(AccessToken, APIKey, status, type);
+        }
+
+        /// <summary>
         /// Get an activity.
         /// </summary>
         /// <param name="activityId">The activity identification.</param>

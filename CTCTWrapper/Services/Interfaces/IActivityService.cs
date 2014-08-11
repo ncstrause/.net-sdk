@@ -22,6 +22,16 @@ namespace CTCT.Services
         IList<Activity> GetActivities(string accessToken, string apiKey);
 
         /// <summary>
+        /// Get a list of activities status reports.
+        /// </summary>
+        /// <param name="accessToken">Constant Contact OAuth2 access token.</param>
+        /// <param name="apiKey">The API key for the application</param>
+        /// <param name="status">Specify activities of which status to retireve. Pass empty string to specify all.</param>
+        /// <param name="type">Specify activities of which type to retireve. Pass empty string to specify all.</param>
+        /// <returns>Returns the list of activities.</returns>
+        IList<Activity> GetActivitiesStatusReport(string accessToken, string apiKey, string status, string type);
+
+        /// <summary>
         /// Get an activity.
         /// </summary>
         /// <param name="accessToken">Constant Contact OAuth2 access token.</param>

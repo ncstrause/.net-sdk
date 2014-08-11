@@ -41,6 +41,34 @@ namespace CTCT.Services
         }
 
         /// <summary>
+        /// Get a list of activities status reports.
+        /// </summary>
+        /// <param name="accessToken">Constant Contact OAuth2 access token.</param>
+        /// <param name="apiKey">The API key for the application</param>
+        /// <param name="status">Specify activities of which status to retireve. Pass empty string to specify all.</param>
+        /// <param name="type">Specify activities of which type to retireve. Pass empty string to specify all.</param>
+        /// <returns>Returns the list of activities.</returns>
+        public IList<Activity> GetActivitiesStatusReport(string accessToken, string apiKey, string status, string type)
+        {
+            IList<Activity> activities = new List<Activity>();
+            string url = Config.ConstructUrl(Config.Endpoints.Activities, null, new object[] {"status", status, "type", type});
+            CUrlResponse response = RestClient.Get(url, accessToken, apiKey);
+
+            if (response.IsError)
+            {
+                throw new CtctException(response.GetErrorMessage());
+            }
+
+            if (response.HasData)
+            {
+                activities = response.Get<IList<Activity>>();
+            }
+
+            return activities;
+
+        }
+
+        /// <summary>
         /// Get an activity.
         /// </summary>
         /// <param name="accessToken">Constant Contact OAuth2 access token.</param>
