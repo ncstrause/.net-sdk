@@ -25,9 +25,9 @@ namespace CTCTWrapper.UnitTest
     {
         #region Private Constants
 
-		private const string CustomerEmail = "";
-        private const string ApiKey = "";
-        private const string AccessToken = "";
+		private const string CustomerEmail = "verified_email_address@...";
+		private const string ApiKey = "apiKey";
+		private const string AccessToken = "accessToken";
 
         #endregion Private Constants
 
