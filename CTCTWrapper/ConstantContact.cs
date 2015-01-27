@@ -174,6 +174,14 @@ namespace CTCT
             this.APIKey = apiKey;
         }
 
+        public ConstantContact()
+        {
+            this.InitializeFields();
+
+            this.AccessToken = ConfigurationManager.AppSettings["AccessToken"];
+            this.APIKey = ConfigurationManager.AppSettings["APIKey"];
+        }
+
         #endregion
 
 		#region Private methods
